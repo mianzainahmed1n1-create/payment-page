@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay Mian Zain</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#121212;
+    color:#fff;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+}
+
+.card{
+    background:#1f1f1f;
+    padding:20px;
+    margin:15px 0;
+    border-radius:12px;
+}
+
+button{
+    background:#00c853;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#00b248;
+}
+
+p{
+    word-break:break-all;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>💳 Pay Mian Zain</h1>
+
+<div class="card">
+<h2>🏦 Standard Chartered</h2>
+<p id="sc">11122334455</p>
+<button onclick="copyText('sc')">Copy IBAN</button>
+</div>
+
+<div class="card">
+<h2>🏦 HBL</h2>
+<p id="hbl">1122334455</p>
+<button onclick="copyText('hbl')">Copy IBAN</button>
+</div>
+
+<div class="card">
+<h2>🏦 Bank Alfalah</h2>
+<p id="alfalah">1122334455</p>
+<button onclick="copyText('alfalah')">Copy IBAN</button>
+</div>
+
+<div class="card">
+<h2>📱 JazzCash</h2>
+<p id="jazz">03333333333</p>
+<button onclick="copyText('jazz')">Copy Number</button>
+</div>
+
+<div class="card">
+<h2>📱 EasyPaisa</h2>
+<p id="easy">033333333333</p>
+<button onclick="copyText('easy')">Copy Number</button>
+</div>
+
+<div class="card">
+<h2>💳 NayaPay</h2>
+<p id="nayapay">03333333333</p>
+<button onclick="copyText('nayapay')">Copy Number</button>
+</div>
+
+</div>
+
+<script>
+function copyText(id){
+    const text=document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied: "+text);
+}
+</script>
+
+</body>
+</html>
