@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PayLink Pro | One QR. Every Payment.</title>
 
-<meta name="description" content="PayLink Pro - One QR. Every Payment.">
-<meta name="theme-color" content="#2563EB">
+<meta name="description" content="One QR. Every Payment.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -22,7 +23,11 @@
 
 <body>
 
-<header class="hero">
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
 
 <div class="logo">
 💳
@@ -30,22 +35,52 @@
 
 <h1>PayLink Pro</h1>
 
-<p>
+<p class="tagline">
 One QR. Every Payment.
 </p>
 
-</header>
+<div id="websiteQR" class="heroQR"></div>
 
-<main class="container">
+<p class="scanText">
+Scan this QR to open this payment page.
+</p>
+
+<a href="#cards" class="startBtn">
+Choose Payment Method
+</a>
+
+</div>
+
+</section>
+
+<section class="payments">
+
+<h2>
+Choose Your Payment Method
+</h2>
 
 <div id="cards"></div>
 
-</main>
+</section>
 
 <footer>
 
+<div class="footerLogo">
+
+💳 PayLink Pro
+
+</div>
+
 <p>
-Powered by <b>PayLink Pro</b>
+
+Professional Smart Payment Solution
+
+</p>
+
+<p>
+
+© 2026 PayLink Pro
+
 </p>
 
 </footer>
@@ -53,4 +88,5 @@ Powered by <b>PayLink Pro</b>
 <script src="script.js"></script>
 
 </body>
+
 </html>
