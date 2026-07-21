@@ -1,144 +1,543 @@
+/* ===========================
+   PayLink Pro v1.0
+   Part 1
+=========================== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 font-family:'Poppins',sans-serif;
 }
 
-body{
-background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
-color:#fff;
-min-height:100vh;
+:root{
+
+--primary:#2563eb;
+--primaryHover:#1d4ed8;
+
+--success:#10b981;
+--successHover:#059669;
+
+--bg:#0f172a;
+--card:#1e293b;
+
+--text:#ffffff;
+--muted:#cbd5e1;
+
+--border:rgba(255,255,255,.08);
+
 }
 
+body{
+
+background:
+linear-gradient(135deg,#020617,#0f172a,#1e293b);
+
+color:var(--text);
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+}
+
+
+/* HERO */
+
 .hero{
+
+position:relative;
+
+padding:70px 20px;
+
 text-align:center;
-padding:60px 20px 40px;
+
+overflow:hidden;
+
+}
+
+.overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(circle at top,#2563eb33,transparent 60%);
+
+z-index:0;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+margin:auto;
+
 }
 
 .logo{
-width:90px;
-height:90px;
+
+width:100px;
+
+height:100px;
+
 margin:auto;
+
 border-radius:50%;
-background:linear-gradient(135deg,#2563eb,#10b981);
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
-font-size:42px;
-box-shadow:0 15px 40px rgba(37,99,235,.35);
-margin-bottom:20px;
+
+font-size:45px;
+
+background:
+
+linear-gradient(135deg,#2563eb,#10b981);
+
+box-shadow:
+
+0 20px 50px rgba(37,99,235,.35);
+
+margin-bottom:25px;
+
 }
 
 .hero h1{
-font-size:48px;
-font-weight:700;
+
+font-size:54px;
+
+font-weight:800;
+
+letter-spacing:1px;
+
 margin-bottom:10px;
+
 }
 
-.hero p{
-color:#cbd5e1;
-font-size:18px;
+.tagline{
+
+font-size:20px;
+
+color:var(--muted);
+
+margin-bottom:35px;
+
 }
 
-.container{
-max-width:1100px;
+.heroQR{
+
+width:210px;
+
+height:210px;
+
+background:white;
+
+padding:15px;
+
 margin:auto;
-padding:30px 20px 80px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
+
+border-radius:22px;
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.35);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 }
+
+.scanText{
+
+margin-top:20px;
+
+color:#94a3b8;
+
+font-size:15px;
+
+}
+
+.startBtn{
+
+display:inline-block;
+
+margin-top:35px;
+
+background:var(--primary);
+
+color:white;
+
+text-decoration:none;
+
+padding:16px 34px;
+
+border-radius:14px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.startBtn:hover{
+
+background:var(--primaryHover);
+
+transform:translateY(-3px);
+
+}
+
+
+/* PAYMENT SECTION */
+
+.payments{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:70px 20px;
+
+}
+
+.payments h2{
+
+text-align:center;
+
+font-size:38px;
+
+margin-bottom:45px;
+
+}
+
+#cards{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(340px,1fr));
+
+gap:28px;
+
+}/* ===========================
+   CARDS
+=========================== */
 
 .card{
+
 background:rgba(255,255,255,.06);
+
 backdrop-filter:blur(14px);
-border:1px solid rgba(255,255,255,.1);
+
+border:1px solid var(--border);
+
 border-radius:22px;
+
 padding:25px;
-transition:.3s;
+
+transition:.35s;
+
 box-shadow:0 15px 35px rgba(0,0,0,.25);
+
 }
 
 .card:hover{
+
 transform:translateY(-8px);
-border-color:#2563eb;
+
+border-color:var(--primary);
+
+box-shadow:0 25px 45px rgba(37,99,235,.25);
+
 }
 
 .card h2{
-margin-bottom:18px;
+
 font-size:24px;
+
+margin-bottom:18px;
+
 }
 
 .info{
-margin:8px 0;
-color:#d1d5db;
+
+margin:10px 0;
+
+color:var(--muted);
+
+font-size:15px;
+
+line-height:1.7;
+
 word-break:break-word;
+
 }
 
 .actions{
-margin-top:20px;
+
+margin-top:22px;
+
 display:flex;
-flex-direction:column;
+
+flex-wrap:wrap;
+
 gap:12px;
+
+align-items:center;
+
 }
 
 button{
-padding:14px;
+
 border:none;
-border-radius:12px;
+
 cursor:pointer;
-font-size:16px;
+
+padding:14px 20px;
+
+border-radius:12px;
+
+font-size:15px;
+
 font-weight:600;
+
 transition:.3s;
+
 }
 
 .copy-btn{
-background:#2563eb;
+
+background:var(--primary);
+
 color:white;
+
 }
 
 .copy-btn:hover{
-background:#1d4ed8;
+
+background:var(--primaryHover);
+
 }
 
 .pay-btn{
-background:#10b981;
+
+background:var(--success);
+
 color:white;
+
 }
 
 .pay-btn:hover{
-background:#059669;
+
+background:var(--successHover);
+
 }
 
 .qr{
-margin:auto;
-margin-top:15px;
+
+margin-top:20px;
+
 background:white;
-padding:10px;
-border-radius:12px;
+
+padding:12px;
+
+border-radius:16px;
+
 width:max-content;
+
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+margin-top:70px;
+
+padding:35px 20px;
+
+border-top:1px solid var(--border);
+
+text-align:center;
+
+}
+
+.footerLogo{
+
+font-size:24px;
+
+font-weight:700;
+
+margin-bottom:12px;
+
+}
+
+footer p{
+
+color:#94a3b8;
+
+margin-top:8px;
+
+}
+
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#0f172a;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#334155;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#475569;
+
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.hero{
+
+padding:60px 20px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.tagline{
+
+font-size:18px;
+
+}
+
+.heroQR{
+
+width:180px;
+
+height:180px;
+
+}
+
+.payments h2{
+
+font-size:30px;
+
+}
+
+#cards{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.logo{
+
+width:80px;
+
+height:80px;
+
+font-size:36px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.tagline{
+
+font-size:16px;
+
+}
+
+.startBtn{
+
+width:100%;
+
+max-width:300px;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+.actions{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.qr{
+
+margin:auto;
+
+margin-top:15px;
+
 }
 
 footer{
-text-align:center;
-padding:30px;
-color:#94a3b8;
-border-top:1px solid rgba(255,255,255,.08);
-}
 
-@media(max-width:768px){
+font-size:14px;
 
-.hero h1{
-font-size:34px;
-}
-
-.hero p{
-font-size:16px;
-}
-
-.container{
-grid-template-columns:1fr;
 }
 
 }
